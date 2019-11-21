@@ -12,15 +12,23 @@ app.get('/todo', function(req, res) {
 })
 
 /* Adding an item to the to do list */
-.post('/todo/add/', urlencodedParser, function(req, res) {
+app.post('/todo/add/', urlencodedParser, function(req, res) {
     if (req.body.newtodo != '') {
         todolist.push(req.body.newtodo);
     }
     res.redirect('/todo');
 })
 
+/* update an item on the to do list */
+app.post('/todo/edit/', urlencodedParser, function(req, res){
+	if (req.body.edit != '') {
+        todolist.splice(req.body.todoid, 1, req.body.edit);
+    }
+    res.redirect('/todo');
+})
+
 /* Deletes an item from the to do list */
-.get('/todo/delete/:id', function(req, res) {
+app.get('/todo/delete/:id', function(req, res) {
     if (req.params.id != '') {
         todolist.splice(req.params.id, 1);
     }
@@ -28,8 +36,12 @@ app.get('/todo', function(req, res) {
 })
 
 /* Redirects to the to do list if the page requested is not found */
-.use(function(req, res, next){
+app.use(function(req, res, next){
     res.redirect('/todo');
 })
 
-.listen(8080);
+app.listen(8080, function () {
+	console.log('We are listening on port 8080!')
+})
+
+module.exports = app;
