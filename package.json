@@ -1,11 +1,18 @@
 {
-  "name": "my-todolist",
-  "version": "0.1.0",
-  "dependencies": {
-    "body-parser": "^1.16.0",
-    "ejs": "^2.5.5",
-    "express": "^4.14.0"
-  },
-  "author": "riaan@entersekt.com",
-  "description": "Basic to do list exercise"
+	"name": "my-todolist",
+	"version": "0.1.0",
+	"scripts": {
+		"test": "mocha"
+	  },
+	"dependencies": {
+		"body-parser": "^1.16.0",
+		"chai": "^3.2.0",
+		"chai-http": "^1.0.0",
+		"ejs": "^2.5.5",
+		"express": "^4.14.0",
+		"istanbul": "^0.4.5",
+		"mocha": "^6.2.2"
+	},
+	"author": "riaan@entersekt.com",
+	"description": "Basic to do list exercise"
 }
