@@ -34,3 +34,27 @@ Visit http://localhost:8080 in your browser
 
 ### Solution
 Explain what you have done here and why...
+
+Oh boy this was tough, I don't like node that much and also very little experience with testing
+
+1.  Added the edit function to existing array, similar to the delete function it just adds in the new value thats taken from the html code
+    Click the pencil on the new task and it will spawn a new edit textbox to edit the relevant item, thanks for the loop
+
+2. Added testing with some help, uses mocha and chai framework. Opens a connection to the server and executes the task against the relevant function.
+   Script added to the overall project function, run with:
+
+   ```npm run test```
+
+3. Dockerfile added to containerise application:
+
+```bash
+
+docker build -t todo-app .
+
+docker run -it -p 8080:8080 todo-app
+```
+
+4. Didn't get round to bonus XSS stuff
+
+5. Attempted to create a helm chart for minikube but stuck with a current bug where tiller doesnt install to minikube correctly, not enough time to debug and fix.
+   Basically the exisiting tiller.yaml file references the incorrect api and the spec is incorrect.
